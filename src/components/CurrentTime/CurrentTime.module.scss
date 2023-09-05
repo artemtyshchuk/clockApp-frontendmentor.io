@@ -1,0 +1,138 @@
+.currentTime {
+  margin-top: 300px;
+  display: grid;
+}
+
+.timeContainer {
+  display: grid;
+}
+
+.timeAndButton {
+  transition: transform 0.3s ease;
+  transform: translateY(0); /* Исходное положение */
+}
+
+.timeAndButton.shiftUp {
+  transform: translateY(-100%); /* Смещаем контейнер вверх */
+}
+
+.greetings {
+  color: var(--white);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  position: absolute;
+  margin-left: 30px;
+}
+
+.timeContainer {
+  grid-column: 1/2;
+}
+
+.time {
+  color: var(--white);
+  margin-top: 16px;
+  font-size: 225px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 200px;
+  letter-spacing: -5px;
+}
+
+.where {
+  color: var(--white);
+  font-size: 24px;
+  margin-top: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: 4.8px;
+  text-transform: uppercase;
+}
+
+.button {
+  // display: grid;
+  background-color: #fff;
+  border-radius: 28px;
+  width: 146px;
+  height: 56px;
+  position: absolute;
+  right: 80px;
+  bottom: 150px;
+  cursor: pointer;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  left: 95px;
+  bottom: 7px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--gray-500);
+}
+
+.buttonText {
+  color: var(--black);
+  position: relative;
+  left: 19px;
+  bottom: 29px;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 28px; /* 175% */
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+
+.timeIcon {
+  position: relative;
+  left: 108px;
+  bottom: -25px;
+}
+
+.menu {
+  visibility: hidden;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 50px;
+  grid-template-rows: auto auto;
+  row-gap: 42px;
+  padding: 74px 165px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(20.387113571166992px);
+  width: 100vw;
+  height: 400px;
+  margin-left: -221px;
+  transition: transform 0.3s ease, visibility 0.3s ease;
+  transform: translateY(100%);
+}
+
+.menu.open {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.menuTitle {
+  color: var(--white);
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.menuText {
+  color: var(--white);
+  padding-top: 9px;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}

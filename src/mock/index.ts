@@ -1,4 +1,5 @@
 import { QuoteType } from "types";
+import { TimeType } from "types/time";
 
 export const defaultQuote: QuoteType[] = [
   {
@@ -7,3 +8,12 @@ export const defaultQuote: QuoteType[] = [
     author: "Meriwether Lewis",
   },
 ];
+
+export const defaultTime: TimeType = {
+  client_ip: "31.61.229.52",
+  datetime: "2023-09-05T18:58:48.157137+02:00",
+  day_of_week: 2,
+  day_of_year: 248,
+  timezone: "Europe/Warsaw",
+  week_number: 36,
+};
