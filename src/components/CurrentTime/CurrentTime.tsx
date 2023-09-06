@@ -39,7 +39,12 @@ export const CurrentTime = (props: CurrentTimeProps) => {
         </div>
 
         <div className={styles.button} onClick={toggleMenu}>
-          <DownIcon className={styles.timeIcon} />
+          {isMenuOpen ? (
+            <UpIcon className={styles.upIcon} />
+          ) : (
+            <DownIcon className={styles.downIcon} />
+          )}
+
           <p className={styles.buttonText}>{buttonText}</p>
           <span className={styles.slider}></span>
         </div>

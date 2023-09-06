@@ -89,7 +89,13 @@
   text-transform: uppercase;
 }
 
-.timeIcon {
+.upIcon {
+  position: relative;
+  left: 95px;
+  bottom: -9px;
+}
+
+.downIcon {
   position: relative;
   left: 108px;
   bottom: -25px;
