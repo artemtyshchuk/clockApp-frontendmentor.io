@@ -11,19 +11,31 @@ const QUOTE_KEY = "rUEATHHfh8RuNklHeX1lhg==9tvyxOFufdAPwZtA";
 const BASE_URL_TIME = "http://worldtimeapi.org/api/timezone/Europe/Warsaw";
 
 function App() {
-  const [quote, setQuote] = useState<QuoteType | null>(defaultQuote[0]);
+  const [quote, setQuote] = useState<QuoteType | null>(null);
   const [time, setTime] = useState<TimeType | null>(null);
 
+  // const fetchTime = async () => {
+  //   const res = await fetch(BASE_URL_TIME);
+  //   const time = (await res.json()) as TimeType;
+  //   setTime(time);
+  // };
+
   const fetchTime = async () => {
-    const res = await fetch(BASE_URL_TIME);
-    const time = (await res.json()) as TimeType;
-    setTime(time);
+    try {
+      const res = await fetch(BASE_URL_TIME);
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      const time = (await res.json()) as TimeType;
+      setTime(time);
+    } catch (error) {
+      console.error("Error fetching time:", error);
+    }
   };
 
   const fetchQuote = async () => {
     try {
       const response = await fetch(BASE_URL_QUOTE, {
-        mode: "no-cors",
         headers: {
           "X-Api-Key": QUOTE_KEY,
         },
@@ -41,6 +53,7 @@ function App() {
   };
   useEffect(() => {
     fetchQuote();
+    fetchTime();
 
     const intervalId = setInterval(() => {
       fetchQuote();
@@ -48,7 +61,7 @@ function App() {
 
     const intervalIdTime = setInterval(() => {
       fetchTime();
-    }, 60000);
+    }, 1000);
 
     return () => {
       clearInterval(intervalId);
@@ -58,7 +71,7 @@ function App() {
 
   return (
     <Container>
-      {quote && <Quote {...quote} />}
+      {quote && <Quote {...quote} fetchQuote={fetchQuote} />}
       {time && <CurrentTime {...time} />}
     </Container>
   );

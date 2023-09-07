@@ -1,5 +1,5 @@
 .currentTime {
-  margin-top: 300px;
+  margin-top: 20%;
   display: grid;
 }
 
@@ -40,6 +40,23 @@
   font-weight: 700;
   line-height: 200px;
   letter-spacing: -5px;
+  display: inline-block;
+  position: relative;
+}
+
+.dots {
+  color: var(--white);
+  font-size: 225px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 200px;
+  letter-spacing: -5px;
+  animation: blink 3s steps(5, start) infinite;
+}
+@keyframes blink {
+  100% {
+    visibility: hidden;
+  }
 }
 
 .where {
@@ -54,7 +71,6 @@
 }
 
 .button {
-  // display: grid;
   background-color: #fff;
   border-radius: 28px;
   width: 146px;
@@ -84,7 +100,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
-  line-height: 28px; /* 175% */
+  line-height: 28px;
   letter-spacing: 5px;
   text-transform: uppercase;
 }
@@ -108,7 +124,7 @@
   column-gap: 50px;
   grid-template-rows: auto auto;
   row-gap: 42px;
-  padding: 74px 165px;
+  padding: 46px 165px;
   position: absolute;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(20.387113571166992px);
@@ -141,4 +157,16 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+.verticalDivider {
+  margin-left: 20px;
+  margin-right: 26px;
+  width: 1px;
+  height: 252px;
+  opacity: 0.25;
+  background-color: white;
+  position: absolute;
+  right: 50%;
+  bottom: 94px;
 }

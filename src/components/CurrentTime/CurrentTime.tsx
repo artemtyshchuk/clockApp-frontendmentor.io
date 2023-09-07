@@ -21,8 +21,20 @@ export const CurrentTime = (props: CurrentTimeProps) => {
   const buttonText = isMenuOpen ? "Less" : "More";
 
   const dateTime = new Date(props.datetime);
+  const currentHour = dateTime.getHours();
 
-  const formattedTime = format(dateTime, "HH:mm");
+  let greeting = "Good morning";
+  let sunOrMoonIcon = <SunIcon />;
+
+  if (currentHour >= 12 && currentHour < 18) {
+    greeting = "Good afternoon";
+  } else if (currentHour >= 18 || currentHour < 5) {
+    greeting = "Good evening";
+    sunOrMoonIcon = <MoonIcon />;
+  }
+
+  const formattedHours = format(dateTime, "HH");
+  const formattedMinutes = format(dateTime, "mm");
 
   return (
     <div className={styles.currentTime}>
@@ -32,10 +44,14 @@ export const CurrentTime = (props: CurrentTimeProps) => {
         }`}
       >
         <div className={styles.timeContainer}>
-          <SunIcon className={styles.sunIcon} />
-          <p className={styles.greetings}>GOOD MORNING, IT’S CURRENTLY</p>
-          <p className={styles.time}>{formattedTime}</p>
-          <p className={styles.where}>In your, place</p>
+          {sunOrMoonIcon}
+          <p className={styles.greetings}>{greeting}, IT’S CURRENTLY</p>
+          <div className="">
+            <p className={styles.time}>{formattedHours}</p>
+            <span className={styles.dots}>:</span>
+            <p className={styles.time}>{formattedMinutes}</p>
+          </div>
+          <p className={styles.where}>In {props.timezone}</p>
         </div>
 
         <div className={styles.button} onClick={toggleMenu}>
@@ -60,6 +76,8 @@ export const CurrentTime = (props: CurrentTimeProps) => {
           <p className={styles.menuTitle}>Day of the week</p>
           <p className={styles.menuText}>{props.day_of_week}</p>
         </div>
+
+        <span className={styles.verticalDivider}></span>
 
         <div className={styles.smth}>
           <p className={styles.menuTitle}>Day of the year</p>
