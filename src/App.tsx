@@ -1,7 +1,6 @@
 import { Container } from "components/Container";
 import { CurrentTime } from "components/CurrentTime";
 import { Quote } from "components/Quote";
-import { defaultQuote, defaultTime } from "mock";
 import { useEffect, useState } from "react";
 import { QuoteType } from "types";
 import { TimeType } from "types/time";

@@ -1,7 +1,7 @@
 import { QuoteType } from "types";
 import styles from "./Quote.module.scss";
 import { ReactComponent as RefreshIcon } from "assets/desktop/icon-refresh.svg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 interface QuoteProps extends QuoteType {
   fetchQuote: () => void;
