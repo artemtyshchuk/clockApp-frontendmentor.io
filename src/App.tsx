@@ -7,7 +7,7 @@ import { TimeType } from "types/time";
 
 const BASE_URL_QUOTE = "https://api.api-ninjas.com/v1/quotes?category=dreams";
 const QUOTE_KEY = "rUEATHHfh8RuNklHeX1lhg==9tvyxOFufdAPwZtA";
-const BASE_URL_TIME = "http://worldtimeapi.org/api/timezone/Europe/Warsaw";
+const BASE_URL_TIME = "https://worldtimeapi.org/api/timezone/Europe/Warsaw";
 
 function App() {
   const [quote, setQuote] = useState<QuoteType | null>(null);
